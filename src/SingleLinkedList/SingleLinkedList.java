@@ -1,4 +1,6 @@
-public class SingleLinkedList<T> {
+package SingleLinkedList;
+
+class MySingleLinkedList<T> {
     public Node<T> head = null;     //노드 클래스 객체 head 선언
 
     public class Node<T> {          //Node 클래스
@@ -102,5 +104,26 @@ public class SingleLinkedList<T> {
                 return false;
             }
         }
+    }
+}
+
+public class SingleLinkedList {
+    public static void main(String[] args) {
+        MySingleLinkedList<Integer> MyLinkedList = new MySingleLinkedList<Integer>();
+
+        MyLinkedList.addNode(1);
+        MyLinkedList.addNode(2);
+        MyLinkedList.addNode(3);
+        MyLinkedList.addNode(4);
+        MyLinkedList.addNode(5);
+
+        MyLinkedList.delNode(3);
+
+        MyLinkedList.delNode(1);
+
+        MyLinkedList.delNode(5);
+
+        MyLinkedList.printAll();
+
     }
 }
