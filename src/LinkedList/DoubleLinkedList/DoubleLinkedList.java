@@ -43,6 +43,38 @@ class MyDoubleLinkedList<T> {
             }
         }
     }
+
+    public T searchFromHead(T isData) {
+        if(this.head == null)
+            return null;
+        else {
+            Node<T> node = this.head;
+            while(node != null) {
+                if(node.data == isData)
+                    return node.data;
+                else {
+                    node = node.next;
+                }
+            }
+            return null;
+        }
+    }
+
+    public T searchFromTail(T isData) {
+        if(this.head == null)
+            return null;
+        else {
+            Node<T> node = this.tail;
+            while(node != null) {
+                if(node.data == isData)
+                    return node.data;
+                else {
+                    node = node.prev;
+                }
+            }
+            return null;
+        }
+    }
 }
 
 public class DoubleLinkedList {
@@ -56,5 +88,8 @@ public class DoubleLinkedList {
         mdll.addNode(5);
 
         mdll.printAll();
+
+        System.out.println("머리부터 찾기 : " + mdll.searchFromHead(10));
+        System.out.println("꼬리부터 찾기 : " + mdll.searchFromTail(5));
     }
 }
