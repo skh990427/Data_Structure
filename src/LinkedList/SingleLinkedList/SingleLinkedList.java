@@ -1,4 +1,4 @@
-package SingleLinkedList;
+package LinkedList.SingleLinkedList;
 
 class MySingleLinkedList<T> {
     public Node<T> head = null;     //노드 클래스 객체 head 선언
