@@ -31,11 +31,30 @@ class MyDoubleLinkedList<T> {
         }
     }
 
+    public void printAll() {  //노드 출력 메서드
+        if(this.head != null) {
+            Node<T> node = this.head;
+            System.out.println(node.data);
 
+            while (node.next != null)
+            {
+                node = node.next;
+                System.out.println(node.data);
+            }
+        }
+    }
 }
 
 public class DoubleLinkedList {
     public static void main(String[] args) {
+        MyDoubleLinkedList<Integer> mdll = new MyDoubleLinkedList<>();
 
+        mdll.addNode(2);
+        mdll.addNode(4);
+        mdll.addNode(8);
+        mdll.addNode(3);
+        mdll.addNode(5);
+
+        mdll.printAll();
     }
 }
