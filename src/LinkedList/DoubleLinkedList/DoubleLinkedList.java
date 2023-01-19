@@ -104,6 +104,28 @@ class MyDoubleLinkedList<T> {
             return false; //while을 빠져나올때까지 if문에서 노드선택을 못했다면, false 리턴
         }
     }
+
+    public boolean delNode(T isData) { //그 노드가 있는지 검사하고 삭제
+        if (this.head == null) {
+            return false;   //헤드가 없으면 null 리턴
+        } else {
+            if (this.head.data == isData) {//헤드의 data가 삭제할 값이면
+                this.head = this.head.next; //헤드를 헤드 다음노드로 교체
+            } else {
+                Node<T> node = this.head;
+                while (node.next != null) {
+                    if (node.data == isData) {
+                        node.prev.next = node.next;
+                        node.next.prev = node.prev;
+
+                        return true;
+                    }
+                    node = node.next;
+                }
+            }
+            return false;
+        }
+    }
 }
 
 public class DoubleLinkedList {
@@ -128,6 +150,14 @@ public class DoubleLinkedList {
 
         System.out.println("나는 2앞에 11을 추가할꺼야!");
         mdll.PrevFrontAddNode(2, 11);
+
+        mdll.printAll(); // 여기서는 11 2 4 10 8 3 5가 나옴
+        System.out.println("나는 11이랑 10이랑 123123을 지울꺼야!");
+        mdll.delNode(11);
+        mdll.delNode(10);
+        mdll.delNode(123123); //값이 없기에 변화X
+
+        //결과는 2 4 8 3 5 나와야함
 
         mdll.printAll();
     }
