@@ -30,10 +30,31 @@ class MyHash { //해쉬 클래스
         }
         return true;
     }
+
+    /**
+     * 해쉬테이블에서 키값으로 value 꺼내기
+     */
+    public String getData(String key) {
+        Integer address = this.HashFunc(key);
+        if(this.hashTable[address] != null) {
+            return this.hashTable[address].value;
+        } else {
+            return null;
+        }
+    }
 }
 
 public class Hash {
     public static void main(String[] args) {
+        /**
+         * 해쉬테이블에 데이터 추가, 꺼내기 test
+         */
+        MyHash mainObject = new MyHash(20);
 
+        mainObject.saveData("key1", "111111");
+        mainObject.saveData("2yek", "222222");
+        mainObject.saveData("k3e3y", "333333");
+
+        System.out.println(mainObject.getData("key1"));
     }
 }
